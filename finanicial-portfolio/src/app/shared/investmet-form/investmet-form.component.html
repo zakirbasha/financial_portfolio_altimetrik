@@ -1,0 +1,55 @@
+    <div class="c-modal">
+        <div class="c-modal-header">
+            <h2>Investment Form</h2>
+            <button type="button" class="close" (click)="closeForm()">
+                <span>&times;</span>
+            </button>
+        </div>
+    <form [formGroup]="investmentForm" (ngSubmit)="onSubmit()">
+        <div class="c-modal-body">
+            @if(!isReviewSection){
+                <label for="assettypr">Asset Type<span class="required">*</span></label>
+                <select id="assettypr" formControlName="assetType">
+                    <option value="" disabled selected>Select Asset Type</option>
+                    @for(type of assetTypes; track type){
+                        <option [value]="type?.name" (change)="update(type.name)">{{ type?.name }}</option>
+                    }
+                </select>
+                @if(investmentForm.get('assetType')?.invalid && (investmentForm.get('assetType')?.touched ||
+                investmentForm.get('assetType')?.dirty)){
+                    <small class="error">Please select an asset type.</small>
+                }
+                <label for="quantity">Quantity<span class="required">*</span></label>
+                <input type="number" id="quantity" formControlName="quantity" placeholder="Enter Quantity" />
+                @if(investmentForm.get('quantity')?.invalid && (investmentForm.get('quantity')?.touched ||
+                investmentForm.get('quantity')?.dirty)){
+                    <small class="error">Please enter a valid quantity.</small>
+                }
+                <label for="price">Price<span class="required">*</span></label>
+                <input type="number" id="price" formControlName="price" placeholder="Enter Price" />
+                @if(investmentForm.get('price')?.invalid && (investmentForm.get('price')?.touched || investmentForm.get('price')?.dirty)) {
+                                        <small class="error">Please enter a valid price.</small>
+                }
+                <label for="date">Investment Date<span class="required">*</span></label>
+                <input type="date" id="date" formControlName="date" placeholder="Enter Investment Date" />
+                @if(investmentForm.get('date')?.invalid && (investmentForm.get('date')?.touched || investmentForm.get('date')?.dirty)) {
+                                        <small class="error">Please select a valid date.</small>
+                }
+                
+        } @else {
+            <div class="review-section">
+                <h3>Review Your Investment</h3>
+                <p><strong>Asset Type:</strong> {{ investmentForm.get('assetType')?.value }}</p>
+                <p><strong>Quantity:</strong> {{ investmentForm.get('quantity')?.value }}</p>
+                <p><strong>Price:</strong> {{ investmentForm.get('price')?.value }}</p>
+                <p><strong>Date:</strong> {{ investmentForm.get('date')?.value | date:'shortDate' }}</p>
+            </div>
+        }
+
+        </div>
+        <div class="c-modal-footer">
+            <button type="button" class="btn-secondary" (click)="closeForm()">Close</button>
+            <button type="submit" class="btn-primary" [disabled]="!investmentForm.valid"> {{!isReviewSection ? 'Preview Purchase' : 'Save'}}</button>
+        </div>
+    </form>
+    </div>

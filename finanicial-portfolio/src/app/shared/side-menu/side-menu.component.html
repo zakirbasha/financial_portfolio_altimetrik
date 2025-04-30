@@ -1,0 +1,11 @@
+<div>
+    <div class="side-menu">
+        <ul>
+            @for(menu of menuList; track menu){
+                <li>
+                    <a [routerLink]="menu.path" href="javascript:;" routerLinkActive="active">{{menu.name}}</a>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

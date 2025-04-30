@@ -1,0 +1,24 @@
+.c-app-header {
+    display:flex;
+    height:4rem;
+    background-color: transparent;
+}
+.c-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.c-logo {
+    font-size: 2rem;
+    color: #000;
+    text-decoration: none;
+}
+.c-profile {
+    border-radius: 10%;
+    height: 2rem;
+    width: 2rem;
+}
+header {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}

@@ -1,0 +1,14 @@
+.middle-section {
+    display: flex;
+    flex: 0 0 100%;
+}
+.middle-left {
+    height: 40rem;
+    background-color: #f8f9fa;
+    display: flex;
+}
+.middle-right {
+    display: flex;
+    flex: 0 0 80%;
+    align-items: center;
+}

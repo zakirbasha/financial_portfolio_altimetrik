@@ -1,0 +1,14 @@
+<div class="d-flex">
+    <div>
+    <canvas baseChart [labels]="pieChartLabels" [type]="pieChartType" [options]="pieChartOptions" [data]="pieChartData">
+    </canvas>
+    </div>
+    <div>
+        <canvas baseChart [labels]="lineChartLabels" [type]="lineChartType" [data]="lineChartData">
+        </canvas>
+    </div>
+    
+</div>
+<div>
+    <button type="button" (click)="openForm()">Add your investment</button>
+</div>
