@@ -8,6 +8,7 @@
     <form [formGroup]="investmentForm" (ngSubmit)="onSubmit()">
         <div class="c-modal-body">
             @if(!isReviewSection){
+                <div>
                 <label for="assettypr">Asset Type<span class="required">*</span></label>
                 <select id="assettypr" formControlName="assetType">
                     <option value="" disabled selected>Select Asset Type</option>
@@ -19,22 +20,29 @@
                 investmentForm.get('assetType')?.dirty)){
                     <small class="error">Please select an asset type.</small>
                 }
+                </div>
+                <div>
                 <label for="quantity">Quantity<span class="required">*</span></label>
                 <input type="number" id="quantity" formControlName="quantity" placeholder="Enter Quantity" />
                 @if(investmentForm.get('quantity')?.invalid && (investmentForm.get('quantity')?.touched ||
                 investmentForm.get('quantity')?.dirty)){
                     <small class="error">Please enter a valid quantity.</small>
                 }
+                </div>
+                <div>
                 <label for="price">Price<span class="required">*</span></label>
                 <input type="number" id="price" formControlName="price" placeholder="Enter Price" />
                 @if(investmentForm.get('price')?.invalid && (investmentForm.get('price')?.touched || investmentForm.get('price')?.dirty)) {
                                         <small class="error">Please enter a valid price.</small>
                 }
+                </div>
+                <div>
                 <label for="date">Investment Date<span class="required">*</span></label>
                 <input type="date" id="date" formControlName="date" placeholder="Enter Investment Date" />
                 @if(investmentForm.get('date')?.invalid && (investmentForm.get('date')?.touched || investmentForm.get('date')?.dirty)) {
                                         <small class="error">Please select a valid date.</small>
                 }
+                </div>
                 
         } @else {
             <div class="review-section">
