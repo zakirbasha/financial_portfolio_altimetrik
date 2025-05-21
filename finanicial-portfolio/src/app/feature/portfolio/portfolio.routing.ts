@@ -11,7 +11,10 @@ export const routes: Routes = [{
         {
             path: 'dashboard',
             loadComponent: () => import('../dashboard/dashboard.component').then(c => c.DashboardComponent)
-        },
+        }, {
+            path: 'portfolio-history',
+            loadComponent: () => import('../portfolio-history/portfolio-history.component').then(c => c.PortfolioHistoryComponent)
+        }
 
     ]
 },{

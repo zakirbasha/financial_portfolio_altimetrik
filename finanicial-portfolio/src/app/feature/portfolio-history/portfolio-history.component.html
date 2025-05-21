@@ -1,0 +1,20 @@
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Investment Type</th>
+                <th>Investment Amount</th>
+                <th>Investment Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(investment of portfolioHistory; track investment){
+            <tr>
+                <td>{{ investment.type }}</td>
+                <td>{{ investment.amount }}</td>
+                <td>{{ investment.date | date }}</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

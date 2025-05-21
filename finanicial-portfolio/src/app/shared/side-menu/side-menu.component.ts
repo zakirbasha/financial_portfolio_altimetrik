@@ -15,7 +15,7 @@ export class SideMenuComponent {
     },
     {
       name: 'Portfolio History',
-      path: 'portfolio',
+      path: 'portfolio-history',
     }
   ];
 }

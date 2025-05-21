@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PortfolioService } from '../../services/portfolio.service';
 import { BaseChartDirective } from 'ng2-charts';
@@ -123,7 +123,15 @@ export class DashboardComponent {
       const res = {
         data: data
       }
-          this.portfolioService.$getAssets.next(res);
+      this.portfolioService.$getAssets.next(res);
+      this.portfolioService.$portfolioHistory.next([
+        ...this.portfolioService.$portfolioHistory.getValue(),
+        {
+          type: result?.assetType,
+          amount: result?.quantity * result?.price,
+          date: result?.date
+        }
+      ]);
     }
     );
 

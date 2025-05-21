@@ -8,8 +8,21 @@ import { BehaviorSubject, of } from 'rxjs';
 export class PortfolioService {
   private http = inject(HttpClient);
   public $getAssets = new BehaviorSubject<any>(null);
+  public $portfolioHistory = new BehaviorSubject<any>(null);
   getAssets() {
     return this.http.get('/api/assets');
+  }
+  getPortfolioHistory() {
+    return of([{
+      type: 'Gold',
+      amount: 10000,
+      date: '2023-01-01'
+    }, {
+      type: 'Real Estate',
+      amount: 30000,
+      date: '2023-01-01'
+      }
+    ]);
   }
   getGoldMarketTrends() {
     return of([{
